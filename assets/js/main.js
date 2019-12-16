@@ -1,17 +1,17 @@
 //Buttons
 $(document).ready(function(){
-    //About Section - further information (not quite right - don't want the p showing upon entry to site)
-    $('#moreorless').on('mouseenter', function(){
-        $('.description').show();
-    })
-    $('#moreorless').on('mouseleave', function () {
-        $('.description').hide();
-    })
-    //when the button is clicked I want to grab the info from the #film input and pass it...where?
-    $('#clicked').click(function(){
-         $('#film'.innerHTML);
+    $('input').focus(function(){
+        //alert('Focus');
+        $(this).css('background', 'grey');
     });
-})
+    $('input').blur(function(){
+        //alert('Focus');
+        $(this).css('background', 'white');
+    });
+    $('input').keyup(function(e){
+        console.log(e.target.value);
+    });
+});
 
 //trying to request data from API
 const APIKEY = '8d72c04338897f51da8771905f89a242';
