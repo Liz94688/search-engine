@@ -24,6 +24,7 @@ $(document).ready(function(){
         e.preventDefault();
         var film = $('input#film').val();
         console.log(film);
+        fetchMovie(film).then((result) => console.log(result));
     });
 });
 
@@ -38,5 +39,13 @@ let getConfig = function(){
             return result.json();
         })
     };
+
+function fetchMovie(movie) {
+    let url = `https://api.themoviedb.org/3/search/movie?api_key=${APIKEY}&query=${movie}`;
+    return fetch(url)
+        .then((result) => {
+            return result.json();
+        });
+}
 
 document.addEventListener('DOMContentLoaded', getConfig);
