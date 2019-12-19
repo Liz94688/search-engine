@@ -1,13 +1,13 @@
 $(document).ready(function(){
     //Button and description - needs to be hidden first??
     $('#expand').click(function(){
-        $('#description').slideDown(3000);
+        $('#description').slideDown(1000);
     });
     $('#expand').click(function(){
-        $('#description').slideUp(3000);
+        $('#description').slideUp(1000);
     });
     $('#expand').click(function(){
-        $('#description').slideToggle(3000);
+        $('#description').slideToggle(1000);
     });
 
     //Input box - catch submission and take value into variable
@@ -22,30 +22,40 @@ $(document).ready(function(){
     });
     $('#searchFor').submit(function(e){
         e.preventDefault();
-        var film = $('input#film').val();
-        console.log(film);
-        fetchMovie(film).then((result) => console.log(result));
+        let choice = $('input#film').val();
+        console.log(choice);
+        fetchMovie(choice).then((result) => console.log(result));
     });
 });
 
 //trying to reach out to API to get data
 const APIKEY = '8d72c04338897f51da8771905f89a242';
-const baseURL = 'https://api.themoviedb.org/3/';
+//const baseURL = 'https://api.themoviedb.org/3/';
 
 let getConfig = function(){
-    let url = "".concat(baseURL, 'configuration?api_key=', APIKEY);
+    let url = `https://api.themoviedb.org/3/configuration?api_key=${APIKEY}`;
     fetch(url)
         .then((result) => {
             return result.json();
         })
     };
 
-function fetchMovie(movie) {
-    let url = `https://api.themoviedb.org/3/search/movie?api_key=${APIKEY}&query=${movie}`;
+function fetchMovie(choice) {
+    let url = `https://api.themoviedb.org/3/search/movie?api_key=${APIKEY}&query=${choice}`;
     return fetch(url)
         .then((result) => {
             return result.json();
-        });
-}
+    });
+
+    /*
+    let films =
+    
+    let output = 
+
+    });
+
+    $('#data').html(output);
+    */
+};
 
 document.addEventListener('DOMContentLoaded', getConfig);
