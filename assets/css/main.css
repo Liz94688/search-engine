@@ -1,7 +1,8 @@
-#description{
+.hidden_div{
     height: 50px;
     width: 90%;
-    text-align: centre;
     background: white;
     color: grey;
+    display: none;
+    margin-top: 10px;
 }
