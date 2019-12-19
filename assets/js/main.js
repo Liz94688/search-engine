@@ -7,7 +7,7 @@ $(document).ready(function(){
         $('#description').slideUp(1000);
     });
     $('#expand').click(function(){
-        $('#description').slideToggle(1000);
+        $('#description').slideToggle(000);
     });
 
     //Input box - catch submission and take value into variable
@@ -32,7 +32,7 @@ $(document).ready(function(){
 const APIKEY = '8d72c04338897f51da8771905f89a242';
 //const baseURL = 'https://api.themoviedb.org/3/';
 
-let getConfig = function(){
+let getData = function(){
     let url = `https://api.themoviedb.org/3/configuration?api_key=${APIKEY}`;
     fetch(url)
         .then((result) => {
@@ -46,16 +46,4 @@ function fetchMovie(choice) {
         .then((result) => {
             return result.json();
     });
-
-    /*
-    let films =
-    
-    let output = 
-
-    });
-
-    $('#data').html(output);
-    */
 };
-
-document.addEventListener('DOMContentLoaded', getConfig);
