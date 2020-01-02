@@ -7,7 +7,7 @@ $(document).ready(function(){
     
     //Button and description
     $('#expand').click(function(){
-        $('.hidden_div').slideDown(2000);
+        $('.hidden_div').show(2000);
     });
 
     //Input box
