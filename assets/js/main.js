@@ -1,4 +1,5 @@
-$(document).ready(function(){
+$(document).ready(function() {
+    let container = document.getElementById('data');
     let configuration = null;
     getConfiguration().then(result => {
         configuration = result;
@@ -6,38 +7,37 @@ $(document).ready(function(){
     });
     
     //Button and description
-    $('#expand').hover(function(){
-        $('.hidden_div').show(2000);
-    });
-    $('#expand').mouseleave(function(){
-        $('.hidden_div').hide(2000);
-    });
+    let aboutLabel = $('#expand');
+    let divEl = $('.hidden_div');
+    aboutLabel.hover(() => { divEl.show(2000); });
+    aboutLabel.mouseleave(() => { divEl.hide(2000); });
 
     //Input box
-    $('input').focus(function(){
+    let inputText = $('#film').focus(function() {
         $(this).css('background', 'lightgrey');
     });
-    $('input').blur(function(){
+
+    inputText.blur(function() {
         $(this).css('background', 'white');
     });
-    $('input').keyup(function(e){
-        console.log(e.target.value);
-    });
 
-    //Catch submission and fetch movie choice
-    $('#searchFor').submit(function(e){
-        e.preventDefault();
-        let choice = $('input#film').val();
-        console.log(choice);
-        fetchMovie(choice).then((result) => {
-            console.log(result);
-            var container = document.getElementById('data'); 
-            for (let movie of result.results) {
-                // console.log(movie);
-                container.innerHTML += renderMovie(movie, configuration);
+    inputText.keyup(_.debounce(function(e) {
+        console.log(e.target.value);
+        let choice = e.target.value;
+        fetchMovie(choice).then((response) => {
+            console.log(response);
+            container.innerHTML = '';
+            if (response.hasOwnProperty('results') && response.results.length) {
+                for (let movie of response.results) {
+                    // console.log(movie);
+                    container.innerHTML += renderMovie(movie, configuration);
+                }
+            }
+            else {
+                container.innerHTML += renderMessage('There is not result based on the current query.');
             }
         });
-    });
+    }, 200));
 });
 
 //Reach out to API to get data
@@ -49,10 +49,10 @@ function getConfiguration(){
         .then((result) => {
             return result.json();
         })
-    };
+};
 
 //Pass in movie choice and return results
-    function fetchMovie(choice, page) {
+function fetchMovie(choice, page) {
     page = (typeof page !== 'undefined') ? page : 1;
     let url = `https://api.themoviedb.org/3/search/movie?api_key=${APIKEY}&query=${choice}&page=${page}`;
     return fetch(url)
@@ -64,7 +64,7 @@ function getConfiguration(){
 //Render results in card format
 function renderMovie(movie, configuration) {
     var url = (movie.poster_path !== null) ? 
-        `${configuration.images.base_url}${configuration.images.poster_sizes[2]}${movie.poster_path}`: src='./assets/images/image_unavailable.jpeg';
+        `${configuration.images.base_url}${configuration.images.poster_sizes[2]}${movie.poster_path}`: 'assets/images/image_unavailable.jpeg';
     const movieCardTpl = `
         <div class="card card-style">
             <img src="${url}" class="card-img-top" alt="...">
@@ -74,4 +74,8 @@ function renderMovie(movie, configuration) {
             </div>
         </div>`;
     return movieCardTpl;
+}
+
+function renderMessage(message) {
+    return `<div class="inner"><p class="message">${message}</p></div>`;
 }

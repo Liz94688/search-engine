@@ -53,6 +53,11 @@ body {
     grid-row-gap: 15px;
 }
 
+.message {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
 /*---------------------------------------Styling cards*/
 .card-style {
     padding: 0;

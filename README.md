@@ -44,7 +44,7 @@ Tests demonstrated...
 I continuously used DevTools - found in Google Chrome - to test the page loads, layout, responsiveness, Javascript and CSS code.
 
 ## Deployment
-The website has been published using Github Pages technology and you can find a version of this [here](). The publishing has been done by using the Master Branch as the source.
+The website has been published using Github Pages technology and you can find a version of this [here](https://liz94688.github.io/search-engine/.). The publishing has been done by using the Master Branch as the source.
 
 ## Credits
 Content in the 'About' section was written by me.
@@ -57,5 +57,5 @@ The photo used to alert a user when a 'poster_path' was unavailable was taken fr
 - Bootswatch - font, colour-scheme, initial styling on input box, button and cards before I amended each of these in main.css
 - Bootstrap - the templates for the form and card elements before I styled each of these in main.css afterwards
 - w3School - jQuery tutorials on References and Examples helped with the 'About' button and input box functionality and Javascript tutorials on Variables, Comparison Operators, Conditional (Ternary) Operators and Arrow Functions helped with the main.js code
-- Layout Land - specifically the YouTube tutorials given by Jen Simmons on CSS Grid Basics and Creating Flexible Models with CSS Grid - see [here] (https://www.youtube.com/channel/UC7TizprGknbDalbHplROtag) helped create a responsive design 
-- The Movie Database API - please see [here] (https://developers.themoviedb.org/3/getting-started/introduction) for link on documentation for registering for an API key, Getting Started and code on 'GET API Configuration' and 'Send Request based on Movie ID'
+- Layout Land - specifically the YouTube tutorials given by Jen Simmons on CSS Grid Basics and Creating Flexible Models with CSS Grid - see [here](https://www.youtube.com/channel/UC7TizprGknbDalbHplROtag) helped create a responsive design 
+- The Movie Database API - please see [here](https://developers.themoviedb.org/3/getting-started/introduction) for link on documentation for registering for an API key, Getting Started and code on 'GET API Configuration' and 'Send Request based on Movie ID'
