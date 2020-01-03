@@ -61,7 +61,7 @@ function getConfiguration(){
 //Render results in card format
 function renderMovie(movie, configuration) {
     var url = (movie.poster_path !== null) ? 
-        `${configuration.images.base_url}${configuration.images.poster_sizes[2]}${movie.poster_path}`: '';
+        `${configuration.images.base_url}${configuration.images.poster_sizes[2]}${movie.poster_path}`: src='./assets/images/image_unavailable.jpeg';
     const movieCardTpl = `
         <div class="card card-style">
             <img src="${url}" class="card-img-top" alt="...">
