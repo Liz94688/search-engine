@@ -6,8 +6,11 @@ $(document).ready(function(){
     });
     
     //Button and description
-    $('#expand').click(function(){
+    $('#expand').hover(function(){
         $('.hidden_div').show(2000);
+    });
+    $('#expand').mouseleave(function(){
+        $('.hidden_div').hide(2000);
     });
 
     //Input box
