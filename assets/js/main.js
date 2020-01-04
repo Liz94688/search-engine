@@ -6,7 +6,7 @@ $(document).ready(function() {
         console.log(configuration);
     });
     
-    //Button and description
+    //About button and description
     let aboutLabel = $('#expand');
     let divEl = $('.hidden_div');
     aboutLabel.hover(() => { divEl.show(2000); });
