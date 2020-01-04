@@ -21,6 +21,7 @@ $(document).ready(function() {
         $(this).css('background', 'white');
     });
 
+    //Input film choice, record value, fetch movie, manage results
     inputText.keyup(_.debounce(function(e) {
         console.log(e.target.value);
         let choice = e.target.value;
@@ -29,12 +30,11 @@ $(document).ready(function() {
             container.innerHTML = '';
             if (response.hasOwnProperty('results') && response.results.length) {
                 for (let movie of response.results) {
-                    // console.log(movie);
                     container.innerHTML += renderMovie(movie, configuration);
                 }
             }
             else {
-                container.innerHTML += renderMessage('There is not result based on the current query.');
+                container.innerHTML += renderMessage('There is no result based on your current query.');
             }
         });
     }, 200));
@@ -76,6 +76,7 @@ function renderMovie(movie, configuration) {
     return movieCardTpl;
 }
 
+//Render message if request does not return a result
 function renderMessage(message) {
     return `<div class="inner"><p class="message">${message}</p></div>`;
 }

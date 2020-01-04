@@ -35,27 +35,12 @@ body {
     letter-spacing: 1px;
 }
 
-/*---------------------------------------Form button*/
-.btn-md {
-    margin: 0px;
-    padding: 4px 6px;
-    border-radius: 8px;
-    font-weight: 100;
-    font-size: 30px;
-    letter-spacing: 1px;
-}
-
 /*---------------------------------------Section data*/
 .row {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-column-gap: 10px;
     grid-row-gap: 15px;
-}
-
-.message {
-    margin-left: 20px;
-    margin-right: 20px;
 }
 
 /*---------------------------------------Styling cards*/
@@ -75,4 +60,16 @@ h5.card-title {
     font-size: 20px;
     font-weight: 250;
     letter-spacing: 1px;
+}
+
+.message {
+    margin-left: 15px;
+    margin-right: 15px;
+    letter-spacing: 1px;
+    font-weight: 100;
+}
+
+/*---------------------------------------Footer*/
+.inner {
+    padding-top: 10px;
 }
